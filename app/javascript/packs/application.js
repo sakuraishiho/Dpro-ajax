@@ -7,6 +7,18 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("ajax:success", (event) => {
+    const [data, _status, _xhr] = event.detail;
+    if (data.favorites_count !== undefined) {
+      document.getElementById("favorite-count").innerText = `${data.favorites_count} Favorites`;
+    }
+  });
+});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

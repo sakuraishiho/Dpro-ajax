@@ -1,0 +1,2 @@
+<!-- app/views/favorites/destroy.js.erb -->
+$("#favorite-<%= @blog.id %>").html("<%= j render partial: 'favorite', locals: { blog: @blog } %>");
